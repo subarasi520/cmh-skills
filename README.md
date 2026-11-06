@@ -103,7 +103,7 @@ Requirements: Python 3.11 or later. No third-party packages.
 For Claude Code, copy (or symlink) the skill folder into your personal or project skills folder:
 
 ```bash
-git clone https://github.com/<owner>/cmh-skills.git
+git clone https://github.com/subarasi520/cmh-skills.git
 cp -r cmh-skills/skills/cmh-corpus-verification ~/.claude/skills/
 # or, for one project: cp -r cmh-skills/skills/cmh-corpus-verification <project>/.claude/skills/
 ```

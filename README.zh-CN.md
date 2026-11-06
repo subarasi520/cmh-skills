@@ -99,7 +99,7 @@ flowchart LR
 在 Claude Code 里使用：把 skill 文件夹复制（或建符号链接）到个人或项目的 skills 目录：
 
 ```bash
-git clone https://github.com/<owner>/cmh-skills.git
+git clone https://github.com/subarasi520/cmh-skills.git
 cp -r cmh-skills/skills/cmh-corpus-verification ~/.claude/skills/
 # 只给某个项目用：cp -r cmh-skills/skills/cmh-corpus-verification <项目>/.claude/skills/
 ```
