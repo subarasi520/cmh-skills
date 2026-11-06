@@ -20,7 +20,9 @@ so where the audit and the human samples should go.
 **Earliest instance.** `cmh_aggregate.py earliest` with `--window-start`. Triage rules: short or
 ambiguous forms, window edge, isolated early anchor, single supporting instance. Do not show the
 date to the judge: it should decide the sense from the passage, not from when it believes the sense
-appeared. Report window-edge values as bounds.
+appeared. Report window-edge values as bounds. Errors cut both ways: a false positive makes the date
+too early, a missed true instance in the years before the anchor makes it too late. Draw part of the
+miss sample (`cmh_evaluate.py recall`) from the negatives in those earlier years.
 
 **Share per group.** `cmh_aggregate.py proportion`. Decide in the protocol whether uncertain labels
 are excluded or counted as negative. Draw the human gold sample at random within each group and
