@@ -1,0 +1,16 @@
+# Judge layer for the toy example. The "model" is a keyword stand-in
+# (../mock_judge.py) so the example runs without any model or network.
+# To use a real model, switch to the openai_compatible backend shown in
+# skills/cmh-corpus-verification/templates/judge.toml.
+
+[backend]
+type = "command"
+model = "toy-keyword-judge"
+argv = ["${PYTHON}", "../mock_judge.py"]
+max_retries = 0
+
+[prompt]
+template = "prompt_judge.txt"
+
+[labels]
+allowed = ["TARGET", "OTHER", "UNSURE"]

@@ -1,0 +1,26 @@
+instance_id,unit_id,form,lang,time,text
+m1,u_mouse,mouse,en,1990,Move the mouse to place the cursor on the screen.
+m2,u_mouse,mouse,en,1992,The cat brought a dead mouse to the kitchen door.
+m3,u_mouse,mouse,en,1996,Click the right mouse button to open the menu.
+m4,u_mouse,mouse,en,2003,A field mouse nested under the old shed.
+c1,u_cloud,cloud,en,1990,A cloud of dust rose behind the truck.
+c2,u_cloud,cloud,en,1991,A cloud of smoke filled the computer room after the fire.
+c3,u_cloud,cloud,en,1998,Dark clouds gathered over the harbour.
+c4,u_cloud,cloud,en,2008,Upload your photos to the cloud and open them on any computer.
+c5,u_cloud,cloud,en,2011,The company moved its email to cloud servers run by a provider.
+t1,u_tablet,tablet,en,1990,Take one tablet after each meal.
+t2,u_tablet,tablet,en,1995,The museum displays a clay tablet with early writing.
+t3,u_tablet,tablet,en,2010,She reads the news on her new tablet computer.
+t4,u_tablet,tablet,en,2012,Swipe across the tablet screen to unlock it.
+f1,u_fensi,粉丝,zh,1990,晚饭做了一锅粉丝炖白菜。
+f2,u_fensi,粉丝,zh,1994,这家小店的酸辣粉丝很受欢迎。
+f3,u_fensi,粉丝,zh,2002,数百名粉丝在机场等候偶像。
+f4,u_fensi,粉丝,zh,2006,演唱会结束后，粉丝排队请明星签名。
+b1,u_bingdu,病毒,zh,1990,医生说这次流感是病毒引起的。
+b2,u_bingdu,病毒,zh,1992,新的计算机病毒会删除硬盘上的文件。
+b3,u_bingdu,病毒,zh,1999,请及时更新杀毒软件，防止病毒感染。
+b4,u_bingdu,病毒,zh,2001,科学家在实验室里培养的是哪种病毒？
+y1,u_yun,云,zh,1990,天气预报说明天多云转晴。
+y2,u_yun,云,zh,1995,白云计算机厂今年扩大了生产。
+y3,u_yun,云,zh,2009,照片会自动备份到云端存储。
+y4,u_yun,云,zh,2013,公司把数据迁移到云服务器上。

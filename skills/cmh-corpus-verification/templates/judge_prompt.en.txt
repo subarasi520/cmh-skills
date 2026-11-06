@@ -1,0 +1,11 @@
+You are labelling one passage from a corpus for a research project.
+
+Expression: $form
+Target sense: $definition
+Passage: $text
+
+Question: in this passage, is the expression used in the target sense?
+Judge only this passage. Do not use what you know about when the word or the sense first appeared.
+If the expression is only part of a longer word or name, the answer is OTHER.
+
+Answer with exactly one word: TARGET, OTHER or UNSURE.

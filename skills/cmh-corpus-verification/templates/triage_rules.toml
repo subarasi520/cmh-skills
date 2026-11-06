@@ -1,0 +1,25 @@
+# Triage rules for cmh_triage.py.  分流规则。
+# A claim goes to review when ANY rule fires; conditions inside one rule must ALL hold.
+# 任一规则命中就送复核；同一规则里的条件必须同时成立。
+# Write rules about the claim and its evidence, not about model confidence.
+# 规则针对结论和证据本身，不针对模型的置信度。
+
+[[rule]]
+name = "short_or_ambiguous_form"     # very short forms are often parts of other words / 极短的词形常是别的词的一部分
+conditions = [{ column = "form", op = "len_le", value = 2 }]
+
+[[rule]]
+name = "window_edge"                 # the value may only reflect where the corpus starts / 数值可能只反映语料起点
+conditions = [{ column = "censored", op = "eq", value = "left" }]
+
+[[rule]]
+name = "isolated_early_anchor"       # one early hit far ahead of all others / 一条早期命中远远早于其余
+conditions = [{ column = "gap_to_next_positive", op = "gt", value = 10 }]
+
+[[rule]]
+name = "single_supporting_instance"  # the claim rests on one sentence only / 结论只靠一句话
+conditions = [{ column = "n_positive", op = "lt", value = 2 }]
+
+# [[rule]]
+# name = "sources_disagree"          # add your own: e.g. two corpora give different values
+# conditions = [{ column = "value_source_b", op = "not_empty" }, { column = "sources_agree", op = "eq", value = "false" }]

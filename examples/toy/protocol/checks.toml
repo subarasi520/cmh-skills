@@ -1,0 +1,40 @@
+# Evidence policy for the final table, written as checks.
+
+[[check]]
+type = "unique"
+columns = ["unit_id"]
+
+[[check]]
+type = "allowed"
+column = "status"
+values = ["claimed", "abstained"]
+
+[[check]]
+type = "allowed"
+column = "tier"
+values = ["model_judged", "model_judged_audited", "human_verified"]
+
+[[check]]
+name = "every claim points at an attested instance"
+type = "implies"
+when = [{ column = "status", op = "eq", value = "claimed" }]
+then = [{ column = "evidence_instance_id", op = "not_empty" }, { column = "value", op = "not_empty" }]
+
+[[check]]
+name = "evidence exists in the corpus sample"
+type = "foreign_key"
+column = "evidence_instance_id"
+table = "../data/instances.csv"
+table_column = "instance_id"
+allow_empty = true
+
+[[check]]
+name = "anchors at the window edge are only upper bounds"
+type = "implies"
+when = [{ column = "censored", op = "eq", value = "left" }]
+then = [{ column = "value_kind", op = "eq", value = "upper_bound" }]
+
+[[check]]
+name = "one row per unit"
+type = "row_count"
+same_as = "../data/units.csv"

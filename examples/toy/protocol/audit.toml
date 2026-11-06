@@ -1,0 +1,14 @@
+# Audit layer: a differently configured checker that only sees the anchors
+# sent to review. Another keyword stand-in, stricter than the judge.
+
+[backend]
+type = "command"
+model = "toy-keyword-audit"
+argv = ["${PYTHON}", "../mock_audit.py"]
+max_retries = 0
+
+[prompt]
+template = "prompt_audit.txt"
+
+[labels]
+allowed = ["ACCEPT", "REJECT", "UNSURE"]

@@ -1,0 +1,36 @@
+# Audit-layer configuration. Use a model configured differently from the judge
+# (another family or size, more context, a stricter prompt): a model cannot
+# flag the errors it is confident about.
+# 审计层配置。用和判读层配置不同的模型（不同家族或规模、更多上下文、更严格的提示词）：
+# 一个模型查不出它自己有把握的错误。
+#
+# The audit prompt uses $context: give the audit instances a `context` column
+# (the passage with the text around it). 审计提示词用到 $context：给审计实例加一列 context（带前后文的语料）。
+
+[backend]
+type = "openai_compatible"
+model = "a-different-model"
+base_url = "https://api.example.com/v1"
+api_key_env = "CMH_AUDIT_API_KEY"
+temperature = 0
+max_tokens = 16
+timeout_seconds = 180
+max_retries = 3
+extra_body = {}
+
+[prompt]
+template = "audit_prompt.en.txt"
+
+[labels]
+allowed = ["ACCEPT", "REJECT", "UNSURE"]
+match = "exact"
+
+[input]
+id_column = "instance_id"
+unit_column = "unit_id"
+
+[definitions]
+unit_column = "unit_id"
+text_column = "definition"
+status_column = "status"
+approved_value = "approved"

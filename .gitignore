@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Secrets: never commit keys or environment files
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# Outputs of the toy example
+examples/*/out/
+
+# Your own study data does not belong in this repository.
+# If you keep a study next to it, these names are ignored as a safety net.
+corpus/
+corpora/
+private/
+private_key/
+answer_keys/
+*_answer_key.csv
+ledger*.jsonl
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

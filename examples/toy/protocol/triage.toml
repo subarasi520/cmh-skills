@@ -1,0 +1,13 @@
+# Stated triage rules. A claim goes to review when any rule fires.
+
+[[rule]]
+name = "single_character_form"
+conditions = [{ column = "form", op = "len_le", value = 1 }]
+
+[[rule]]
+name = "window_edge"
+conditions = [{ column = "censored", op = "eq", value = "left" }]
+
+[[rule]]
+name = "isolated_early_anchor"
+conditions = [{ column = "gap_to_next_positive", op = "gt", value = 10 }]

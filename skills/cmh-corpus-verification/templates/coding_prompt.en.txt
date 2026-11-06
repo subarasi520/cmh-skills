@@ -1,0 +1,12 @@
+You are coding one document for a research project, using the codebook below.
+
+Codebook:
+$codebook
+
+Document:
+$text
+
+Which single category of the codebook fits this document best?
+Use only what the document says. If no category fits, or the document is too short to tell, answer UNCLEAR.
+
+Answer with exactly one category code from the codebook, or UNCLEAR.

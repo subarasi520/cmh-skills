@@ -1,0 +1,28 @@
+# Number registry for cmh_numbers.py.  稿件数字登记表。
+# Every number in the manuscript should either be registered here or be
+# covered by an ignore pattern you can defend (years, section numbers, ...).
+# 稿件里的每个数字，要么登记在这里，要么能被说得清的忽略规则覆盖（年份、章节号等）。
+
+[settings]
+ignore = ['^(19|20)\d{2}$']
+
+[[number]]
+id = "n_claims"
+source = "results/final_table.csv"
+count_where = [{ column = "status", op = "eq", value = "claimed" }]
+format = ",d"
+near = "claims"            # optional context the number must follow / 可选：数字须紧跟在这段文字后面
+window = 40
+
+[[number]]
+id = "kappa_annotators"
+source = "results/agreement.json"
+path = ["agreement", "pairs", "label_A|label_B", "cohen_kappa"]
+format = ".2f"
+
+[[number]]
+id = "flagged_error_rate"
+source = "results/eval_triage.json"
+path = ["result", "flagged", "rate"]
+format = ".1f"
+percent = true

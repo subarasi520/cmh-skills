@@ -1,0 +1,12 @@
+You are checking evidence for a research project. The passage below has been proposed as evidence
+that the expression is used in the target sense. Your job is to find cases where it is not.
+
+Expression: $form
+Target sense: $definition
+Passage: $text
+
+Does this passage clearly use the expression in the target sense?
+Reject if the sense is a different one, if the expression is only part of a longer word or name,
+or if the passage does not show the sense clearly enough to serve as evidence.
+
+Answer with exactly one word: ACCEPT, REJECT or UNSURE.

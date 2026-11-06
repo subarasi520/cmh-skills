@@ -1,0 +1,73 @@
+# Judge-layer configuration for cmh_judge.py.  判读层配置。
+# Copy it into your study's protocol folder, edit, then freeze it with cmh_protocol.py.
+# 复制到你的研究协议目录，改好后用 cmh_protocol.py 冻结。
+#
+# Only run configuration files you have read: a "command" backend executes a program.
+# 只运行你读过的配置文件：command 后端会执行文件里写的程序。
+
+[backend]
+# "openai_compatible": any server with POST {base_url}/chat/completions
+# (local servers such as Ollama, vLLM or llama.cpp; or a hosted API).
+# 任何提供 /chat/completions 接口的服务（本地或云端）。
+type = "openai_compatible"
+model = "your-model-name"
+base_url = "http://localhost:11434/v1"
+
+# Name of the environment variable that holds the API key; leave empty for none.
+# The key is read at run time and never written to the ledger.
+# 存放 API 密钥的环境变量名；不需要密钥就留空。密钥只在运行时读取，不会写进台账。
+api_key_env = ""
+
+temperature = 0          # deterministic as far as the server allows / 尽量确定性
+max_tokens = 16          # the answer is one word / 只要一个词
+timeout_seconds = 120
+max_retries = 2          # retries on timeouts, HTTP 429 and 5xx / 超时、429、5xx 时重试
+
+# Extra fields passed through in the request body, e.g. to turn off a
+# model's "thinking" mode. Check your server's documentation for the names.
+# 原样放进请求体的额外字段，例如关闭模型的“思考”模式；字段名以你的服务文档为准。
+extra_body = {}
+
+# --- command backend (alternative) / 命令行后端（另一种接法） ---
+# type = "command"
+# model = "name-recorded-in-the-ledger"
+# argv = ["your-cli", "--flag"]        # no shell; the prompt goes to stdin, the reply comes from stdout
+# cwd = "."                            # relative to this file; "${PYTHON}" in argv = the current Python
+
+[prompt]
+template = "judge_prompt.en.txt"       # $column placeholders are filled from the instances table
+# system = "system_prompt.txt"         # optional system message / 可选的系统提示
+
+# Fixed texts inserted into every prompt, e.g. a codebook for document coding
+# (then use coding_prompt.en.txt, which contains $codebook).
+# 每条提示词都要插入的固定文本，例如文档编码用的编码手册（配合含 $codebook 的 coding_prompt）。
+# [prompt.files]
+# codebook = "codebook.md"
+
+[labels]
+allowed = ["TARGET", "OTHER", "UNSURE"]
+# exact: the whole reply must be a label; first_line: the first line must be one;
+# search: exactly one label must occur. Prefer short ASCII labels even for
+# non-English prompts: a one-character label such as 是 also occurs inside ordinary words.
+# 建议即使提示词不是英文也用简短的 ASCII 标签：单字标签（如“是”）会出现在普通词语里。
+match = "exact"
+# aliases = { "YES" = "TARGET", "NO" = "OTHER" }
+
+[input]
+id_column = "instance_id"
+unit_column = "unit_id"
+
+[definitions]
+# With --definitions, every unit needs a row whose status is "approved".
+# 给了 --definitions 时，每个单元都要有一行，且 status 为 approved（由研究者审过）。
+unit_column = "unit_id"
+text_column = "definition"
+status_column = "status"
+approved_value = "approved"
+
+[run]
+sleep_seconds = 0
+# Store the full prompt in the ledger. Off by default: prompts contain corpus
+# text, which may be copyrighted or personal.
+# 是否把完整提示词写进台账。默认关闭：提示词里有语料原文，可能涉及版权或个人信息。
+store_prompts = false

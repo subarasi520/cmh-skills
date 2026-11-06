@@ -1,0 +1,2 @@
+unit_id,form,definition,status,reviewed_by,reviewed_on,notes
+U0001,example,"Write the target sense in one or two plain sentences, as an annotator would read it.",draft,,,"Set status to approved only after a researcher has read and accepted it."

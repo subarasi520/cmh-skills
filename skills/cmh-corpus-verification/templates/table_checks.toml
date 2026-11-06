@@ -1,0 +1,49 @@
+# Checks for your results table (cmh_check.py run).  结论表的核对规则。
+# Encode your evidence policy here and run it every time the table is rebuilt.
+# 把证据规则写成核对项，每次重建结论表都跑一遍。
+
+[[check]]
+type = "unique"
+columns = ["unit_id"]
+
+[[check]]
+type = "not_empty"
+columns = ["unit_id", "status", "tier"]
+
+[[check]]
+type = "allowed"
+column = "tier"
+# Ordered from strongest to weakest in your protocol; adapt the names.
+# 在协议里按强到弱排好；名称按你的研究改。
+values = ["human_verified", "authoritative_record", "model_judged_audited", "model_judged", "search_count_bound"]
+
+[[check]]
+name = "every claim points at an attested instance"
+type = "implies"
+when = [{ column = "status", op = "eq", value = "claimed" }]
+then = [{ column = "evidence_instance_id", op = "not_empty" }]
+
+[[check]]
+name = "search counts only give bounds"
+type = "implies"
+when = [{ column = "tier", op = "eq", value = "search_count_bound" }]
+then = [{ column = "value_kind", op = "eq", value = "upper_bound" }]
+
+[[check]]
+name = "window-edge values are bounds"
+type = "implies"
+when = [{ column = "censored", op = "eq", value = "left" }]
+then = [{ column = "value_kind", op = "eq", value = "upper_bound" }]
+
+[[check]]
+name = "evidence exists in the corpus sample"
+type = "foreign_key"
+column = "evidence_instance_id"
+table = "../data/instances.csv"
+table_column = "instance_id"
+allow_empty = true
+
+[[check]]
+name = "no unit silently dropped"
+type = "row_count"
+same_as = "../data/units.csv"

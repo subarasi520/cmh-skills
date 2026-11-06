@@ -1,0 +1,128 @@
+# Registry for report.md: every number in the report is looked up here.
+
+[settings]
+ignore = []
+
+[[number]]
+id = "instances_judged"
+source = "out/labels_judge.csv"
+count_where = [{ column = "status", op = "eq", value = "ok" }]
+format = "d"
+near = "labelled"
+
+[[number]]
+id = "units"
+source = "data/units.csv"
+count_where = [{ column = "unit_id", op = "not_empty" }]
+format = "d"
+near = "instances for"
+window = 4
+
+[[number]]
+id = "anchors_first_pass"
+source = "out/claims_first_pass.csv"
+count_where = [{ column = "status", op = "eq", value = "claimed" }]
+format = "d"
+near = "anchor for"
+window = 4
+
+[[number]]
+id = "flagged"
+source = "out/eval_triage.json"
+path = ["result", "flagged", "n"]
+format = "d"
+near = "rules flagged"
+window = 4
+
+[[number]]
+id = "flagged_error_rate"
+source = "out/eval_triage.json"
+path = ["result", "flagged", "rate"]
+format = ".1f"
+percent = true
+near = "the error rate was"
+window = 8
+
+[[number]]
+id = "unflagged_error_rate"
+source = "out/eval_triage.json"
+path = ["result", "unflagged", "rate"]
+format = ".1f"
+percent = true
+near = "it was"
+window = 8
+
+[[number]]
+id = "unflagged_errors"
+source = "out/eval_triage.json"
+path = ["result", "unflagged", "k"]
+format = "d"
+near = "% ("
+window = 3
+
+[[number]]
+id = "unflagged_n"
+source = "out/eval_triage.json"
+path = ["result", "unflagged", "n"]
+format = "d"
+near = " of "
+window = 3
+
+[[number]]
+id = "audit_caught"
+source = "out/eval_audit.json"
+path = ["result", "per_configuration", "audit", "catch_rate", "k"]
+format = "d"
+near = "audit caught"
+window = 4
+
+[[number]]
+id = "audit_false_overturns"
+source = "out/eval_audit.json"
+path = ["result", "per_configuration", "audit", "false_overturn_rate", "k"]
+format = "d"
+near = "wrongly rejected"
+window = 4
+
+[[number]]
+id = "audit_precision"
+source = "out/eval_audit.json"
+path = ["result", "per_configuration", "audit", "precision", "rate"]
+format = ".1f"
+percent = true
+near = "precision"
+window = 8
+
+[[number]]
+id = "cloud_after_audit"
+source = "out/final_table.csv"
+row = { column = "unit_id", equals = "u_cloud" }
+column = "value"
+format = "d"
+near = "\"cloud\" moved to"
+window = 6
+
+[[number]]
+id = "yun_after_audit"
+source = "out/final_table.csv"
+row = { column = "unit_id", equals = "u_yun" }
+column = "value"
+format = "d"
+near = "\"云\" moved to"
+window = 6
+
+[[number]]
+id = "kappa_a_b"
+source = "out/agreement.json"
+path = ["agreement", "pairs", "label_A|label_B", "cohen_kappa"]
+format = ".2f"
+near = "κ ="
+window = 6
+
+[[number]]
+id = "fleiss_kappa"
+source = "out/agreement.json"
+path = ["agreement", "fleiss_kappa", "kappa"]
+format = ".2f"
+near = "Fleiss' κ ="
+window = 6

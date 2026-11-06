@@ -1,0 +1,7 @@
+unit_id,form,definition,status,reviewed_by,reviewed_on
+u_mouse,mouse,a hand-held device moved on a desk to control a pointer on a computer screen,approved,R1,2026-01-05
+u_cloud,cloud,remote computing services and storage reached over a network,approved,R1,2026-01-05
+u_tablet,tablet,a flat portable computer operated by touching its screen,approved,R1,2026-01-05
+u_fensi,粉丝,支持、追随某个人或某部作品的人（英语 fan 的音译）,approved,R1,2026-01-05
+u_bingdu,病毒,能自我复制、破坏或干扰计算机运行的程序,approved,R1,2026-01-05
+u_yun,云,通过网络提供的远程计算与存储服务,approved,R1,2026-01-05
