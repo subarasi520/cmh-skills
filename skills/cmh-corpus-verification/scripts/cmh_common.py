@@ -19,7 +19,7 @@ import tomllib
 from pathlib import Path
 from typing import Any, Iterable, Sequence
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 # Cells starting with these characters can be interpreted as formulas by
 # spreadsheet programs (CSV/formula injection). Sheets meant for humans are

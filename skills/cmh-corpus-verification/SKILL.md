@@ -1,6 +1,10 @@
 ---
 name: cmh-corpus-verification
 description: Use when language models are to label, classify, date or code instances in a text corpus for linguistics or social-science research (word senses, first attestations, loanwords, neologisms, frames, stance, topics, codebook coding) and the results must hold up to scrutiny; also when planning such a study, choosing or validating a model for it, designing blind human annotation, measuring inter-annotator or human–model agreement, or checking claims and numbers before writing up. 适用于用大语言模型对语料实例做判读、分类、定年或编码，且结论要经得起检验的语言学与社会科学研究。
+license: MIT
+compatibility: For any agent that reads Agent Skills (SKILL.md). The scripts need Python 3.11 or later and no third-party packages.
+metadata:
+  version: "1.0.0"
 ---
 
 # CMH: Corpus–Model–Human verification
@@ -16,7 +20,7 @@ Every result carries its evidence tier and the measured error rate of that tier.
 evidence is insufficient, no claim is made.
 
 Respond in the user's language. A Chinese version of this file is `SKILL.zh-CN.md`; every
-reference has a `.zh-CN.md` twin.
+reference has a `.zh-CN.md` twin. All paths below are relative to the folder that contains this file.
 
 ## When to use
 
@@ -114,10 +118,10 @@ offline run on synthetic data is in the repository's `examples/toy/run_example.p
 
 ## References
 
-- `references/workflow.md`: each step, its outputs and checkpoints
-- `references/scenarios.md`: claim types (dating, proportions, presence, comparison, coded variables) and what to adapt
-- `references/evidence.md`: tiers, windows and censoring, abstention, the results table, instruments
-- `references/human-annotation.md`: pilot, blindness, sheets, sample sizes, adjudication
-- `references/statistics.md`: which measure for which question, how to word results
-- `references/failure-patterns.md`: symptoms, checks and fixes
-- `references/glossary.md`: English–Chinese terms
+- [references/workflow.md](references/workflow.md): each step, its outputs and checkpoints
+- [references/scenarios.md](references/scenarios.md): claim types (dating, proportions, presence, comparison, coded variables) and what to adapt
+- [references/evidence.md](references/evidence.md): tiers, windows and censoring, abstention, the results table, instruments
+- [references/human-annotation.md](references/human-annotation.md): pilot, blindness, sheets, sample sizes, adjudication
+- [references/statistics.md](references/statistics.md): which measure for which question, how to word results
+- [references/failure-patterns.md](references/failure-patterns.md): symptoms, checks and fixes
+- [references/glossary.md](references/glossary.md): English–Chinese terms

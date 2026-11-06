@@ -1,6 +1,6 @@
 # CMH：语料—模型—人 核验（中文对照版）
 
-> 智能体读取的是同目录下的 `SKILL.md`；本文件是它的中文对照版，内容一一对应。
+> 智能体读取的是同目录下的 `SKILL.md`；本文件是它的中文对照版，内容一一对应。文中的路径都相对于本文件所在的文件夹。
 
 ## 概述
 
@@ -103,10 +103,10 @@
 
 ## 参考文件
 
-- `references/workflow.zh-CN.md`：每一步的产出和检查点
-- `references/scenarios.zh-CN.md`：结论类型（定年、比例、有无、比较、编码变量）与各自要调整的地方
-- `references/evidence.zh-CN.md`：证据层级、观察窗与删失、弃权、结论表、仪表
-- `references/human-annotation.zh-CN.md`：试标、盲性、卷子、样本量、裁决
-- `references/statistics.zh-CN.md`：什么问题用什么指标，结果怎么写
-- `references/failure-patterns.zh-CN.md`：常见失误的症状、检查与对策
-- `references/glossary.md`：中英术语对照
+- [references/workflow.zh-CN.md](references/workflow.zh-CN.md)：每一步的产出和检查点
+- [references/scenarios.zh-CN.md](references/scenarios.zh-CN.md)：结论类型（定年、比例、有无、比较、编码变量）与各自要调整的地方
+- [references/evidence.zh-CN.md](references/evidence.zh-CN.md)：证据层级、观察窗与删失、弃权、结论表、仪表
+- [references/human-annotation.zh-CN.md](references/human-annotation.zh-CN.md)：试标、盲性、卷子、样本量、裁决
+- [references/statistics.zh-CN.md](references/statistics.zh-CN.md)：什么问题用什么指标，结果怎么写
+- [references/failure-patterns.zh-CN.md](references/failure-patterns.zh-CN.md)：常见失误的症状、检查与对策
+- [references/glossary.md](references/glossary.md)：中英术语对照
